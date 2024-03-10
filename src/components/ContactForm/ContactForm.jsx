@@ -3,7 +3,7 @@ import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import { getVisibleContacts } from 'store/selectors';
 import { addContact } from 'store/contactsSlice';
-import { Form, Input, Button } from './ContactForm.styled';
+import { Form, Input, Button, Label } from './ContactForm.styled';
 
 const nameInputId = nanoid();
 const numberInputId = nanoid();
@@ -51,7 +51,7 @@ export function ContactForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <label htmlFor={nameInputId}>Name</label>
+      <Label htmlFor={nameInputId}>Name
       <Input
         type="text"
         name="name"
@@ -60,8 +60,9 @@ export function ContactForm() {
         required
         value={name}
         onChange={handleChange}
-      />
-      <label htmlFor={numberInputId}>Number</label>
+        />
+        </Label>
+      <Label htmlFor={numberInputId}>Number
       <Input
         type="tel"
         name="number"
@@ -70,7 +71,8 @@ export function ContactForm() {
         required
         value={number}
         onChange={handleChange}
-      />
+        />
+        </Label>
       <Button type="submit">Add contact</Button>
     </Form>
   );
